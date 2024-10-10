@@ -1,8 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { useSession } from "next-auth/react"
-import { useRouter } from "next/navigation"
+import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Overview } from "@/components/overview"
@@ -10,6 +8,7 @@ import { RecentTransactions } from "@/components/recent-transactions"
 import { AddTransactionForm } from "@/components/add-transaction-form"
 import { BudgetForm } from "@/components/budget-form"
 import { Transaction } from '@/components/types';
+
 
 // Define the type for a budget (modify as needed)
 interface Budget {
@@ -20,8 +19,6 @@ interface Budget {
 
 
 export default function DashboardPage() {
-  const { data: session, status } = useSession()
-  const router = useRouter()
   const [balance, setBalance] = useState<number>(5000);
   
   // Transactions state initialized with example data
@@ -33,12 +30,6 @@ export default function DashboardPage() {
   
   // Budgets state initialized as an empty array
   const [budgets, setBudgets] = useState<Budget[]>([]);
-
-  useEffect(() => {
-    if (status === "unauthenticated") {
-      router.push("/")
-    }
-  }, [status, router])
 
   // Function to add a new transaction
   const addTransaction = (newTransaction: Omit<Transaction, 'id'>) => {
@@ -60,16 +51,6 @@ export default function DashboardPage() {
     ];
     setBudgets(updatedBudgets);
   };
-
-  if (status === "loading") {
-    return <div>Loading...</div>
-  }
-
-  if (!session) {
-    return null
-  }
-
-
 
   return (
     <div className="flex-col md:flex">
