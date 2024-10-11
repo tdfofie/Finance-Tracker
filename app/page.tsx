@@ -39,28 +39,12 @@ export default function AuthenticationPage() {
           </svg>
           Sikasie Finance Manager
         </div>
-        <div>
-             <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="absolute -top-12 h-16 w-16 text-gradient"
-              >
-                <defs>
-                  <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style={{ stopColor: '#FF5733', stopOpacity: 1 }} />
-                    <stop offset="100%" style={{ stopColor: '#33FF57', stopOpacity: 1 }} />
-                  </linearGradient>
-                </defs>
-                <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" fill="url(#gradient)" />
-              </svg>
-              
         <div className="relative z-20 mt-auto">
           <blockquote className="space-y-2">
             <p className="text-lg">
               &ldquo;This app has revolutionized the way I manage my finances. It&apos;s simple, intuitive, and incredibly effective.&rdquo;
             </p>
-            <footer className="text-sm">Titi Nyamewaa</footer>
+            <footer className="text-sm">Ama Nyamewaa</footer>
           </blockquote>
         </div>
       </div>
