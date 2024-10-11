@@ -1,17 +1,18 @@
-import { Metadata } from "next"
-import Link from "next/link"
-import { cn } from "@/lib/utils"
-import { buttonVariants } from "@/components/ui/button"
-import { UserAuthForm } from "@/components/user-auth-form"
+import { Metadata } from "next";
+import Link from "next/link";
+
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
+import { UserAuthForm } from "@/components/user-auth-form";
 
 export const metadata: Metadata = {
   title: "Authentication",
   description: "Authentication forms built using the components.",
-}
+};
 
 export default function AuthenticationPage() {
   return (
-    <div className="container relative flex h-screen flex-col items-center justify-center px-4 md:px-0 md:grid lg:max-w-none lg:grid-cols-2">
+    <div className="container relative h-screen flex flex-col md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
       <Link
         href="/dashboard"
         className={cn(
@@ -21,14 +22,13 @@ export default function AuthenticationPage() {
       >
         Login
       </Link>
-      {/* Left Side for Desktop Only */}
-      <div className="relative hidden h-full bg-muted p-10 text-white lg:flex dark:border-r">
+      <div className="relative hidden h-full flex-col bg-muted p-10 text-white lg:flex dark:border-r">
         <div className="absolute inset-0 bg-zinc-900" />
         <div className="relative z-20 flex items-center text-lg font-medium">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
-            fill="none"
+            fill="currentColor"
             stroke="currentColor"
             strokeWidth="2"
             strokeLinecap="round"
@@ -37,24 +37,56 @@ export default function AuthenticationPage() {
           >
             <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" />
           </svg>
-          Personal Finance Tracker
+          Sikasie Finance Manager
         </div>
+        <div>
+             <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="absolute -top-12 h-16 w-16 text-gradient"
+              >
+                <defs>
+                  <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style={{ stopColor: '#FF5733', stopOpacity: 1 }} />
+                    <stop offset="100%" style={{ stopColor: '#33FF57', stopOpacity: 1 }} />
+                  </linearGradient>
+                </defs>
+                <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" fill="url(#gradient)" />
+              </svg>
+              
         <div className="relative z-20 mt-auto">
           <blockquote className="space-y-2">
             <p className="text-lg">
               &ldquo;This app has revolutionized the way I manage my finances. It&apos;s simple, intuitive, and incredibly effective.&rdquo;
             </p>
-            <footer className="text-sm">Sofia Davis</footer>
+            <footer className="text-sm">Titi Nyamewaa</footer>
           </blockquote>
         </div>
       </div>
-      {/* Right Side for Both Mobile and Desktop */}
-      <div className="lg:p-8">
+      <div className="flex h-full items-center justify-center lg:p-8 mx-10 md:mx-0">
         <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
           <div className="flex flex-col space-y-2 text-center">
-            <h1 className="text-2xl font-semibold tracking-tight">
-              Create an account
-            </h1>
+            <div className="relative flex flex-col items-center text-lg font-medium mb-16">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="absolute -top-12 h-16 w-16 text-gradient"
+              >
+                <defs>
+                  <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style={{ stopColor: '#FF5733', stopOpacity: 1 }} />
+                    <stop offset="100%" style={{ stopColor: '#33FF57', stopOpacity: 1 }} />
+                  </linearGradient>
+                </defs>
+                <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" fill="url(#gradient)" />
+              </svg>
+              <h1 className="relative z-10 text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 shadow-lg">
+                SFM
+              </h1>
+            </div>
+            <h1 className="text-2xl font-semibold tracking-tight text-blue-600">Create an account</h1>
             <p className="text-sm text-muted-foreground">
               Enter your email below to create your account
             </p>
@@ -80,5 +112,5 @@ export default function AuthenticationPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
